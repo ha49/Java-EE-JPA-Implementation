@@ -24,7 +24,7 @@ public class DataGenerator {
         Student student2 = new Student("Hillary", "Mail", "Hillary.Mail@gmail.com", "000-000002");
         Student student3 = new Student("Leonardo", "Oscar", "Leonardo.Oscar@revenant.com", "000-000003");
         Student student4 = new Student("Trump", "Golf", "Trump.Golf@pennsylvania.com", "000-000004");
-        Student student5 = new Student("Maradona", "Drug", "Maradona.Drug@fifa.com", "000-000005");
+        Student student5 = new Student("Maradona", "Godshand", "Maradona.Godshand@fifa.com", "000-000005");
         Student student6 = new Student("Joe", "Winner", "Joe.Winner@vithus.com", "000-000006");
         Student student7 = new Student("Angelina", "Pitt", "Angeli.Pitt@mrmrssimith.com", "000-000007");
         Student student8 = new Student("John", "Envoy", "John.Envoy@enviroment.com", "000-000008");

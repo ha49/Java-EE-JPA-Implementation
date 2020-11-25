@@ -85,6 +85,17 @@ public class SubjectRest {
         }
     }
 
+    @Path("getSubjectMatters")
+    @GET
+    public List<Subject> getAllSubjectMatters() {
+        List<Subject> subjectList = subjectService.getAllSubjectMatters();
+        if (subjectList.isEmpty()) {
+            throw new SubjectNotFoundException("Currently there is no subject information recorded in the database");
+        } else {
+            return subjectService.getAllSubjectMatters();
+        }
+    }
+
     @Path("getAllBySubject/{name}")
     @GET
     public List<Subject> getAllStudentsAndTeachersBySubjectNameNP(@PathParam("name") String name) {
@@ -122,36 +133,6 @@ public class SubjectRest {
             return Response.ok(teacherList).build();
         }
     }
-
-
-    @Path("getSubjects/{studentName}")
-    @GET
-
-/*
-    public Response getAllSubjectsOfSpecificStudent(@PathParam("studentName") String name) {
-        List<Subject> subjectList = subjectService.getSubjectsOfSpecificStudent(name);
-        if (subjectList.isEmpty()) {
-            throw new StudentNotFoundException("No teachers found related to subject " + name );
-
-        } else {
-            return Response.ok(subjectList).build();
-        }
-    }
-
-*/
-
-
-/*
-    @Path("getStudentsBySubjectAndTeacher/{subject}/{teacherName}")
-    @GET
-    public Response getPlayerById(@PathParam("subject") String subject, @PathParam("teacherName") String teacherName) {
-        Set<Student> player = schoolService.getStudentsBySubjectAndTeacher(subject, teacherName);
-        if (player != null) {
-            return Response.ok(player).build();
-        } else {
-            throw new NotFoundException("Teacher has no subject with name: " + subject + " or Teacher with name: " + teacherName + "not found.");
-        }
-    }*/
 
 
 

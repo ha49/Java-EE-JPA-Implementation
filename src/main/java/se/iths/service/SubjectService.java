@@ -40,6 +40,11 @@ public class SubjectService {
                 createQuery("SELECT s from Subject s", Subject.class).
                 getResultList();
     }
+    public List<Subject> getAllSubjectMatters() {
+        return entityManager.
+                createQuery("SELECT s.subjectMatter from Subject s", Subject.class).
+                getResultList();
+    }
 
     public List<Subject> getSubjectByNameNamedParameters(String name) {
         String query = "SELECT s FROM Subject s " +
@@ -55,34 +60,25 @@ public class SubjectService {
     public  List<Subject> getAllStudentsBySubject(String name) {
 
         return entityManager
-                .createQuery("SELECT s FROM Subject s WHERE s.subjectMatter =\'" + name + "\'", Subject.class)
+            .createQuery("SELECT DISTINCT sub.students FROM Subject sub   WHERE LOWER (sub" +
+                    ".subjectMatter )" +
+                        "=LOWER(:name)",Subject.class).
+                setParameter("name",name)
                 .getResultList();
     }
+
 
 
 
     public  List<Subject> getAllTeachersBySubject(String name) {
 
+
         return entityManager
-                .createQuery("SELECT s FROM Subject s WHERE s.subjectMatter =\'" + name + "\'", Subject.class)
+                .createQuery("SELECT DISTINCT sub.teacher FROM Subject sub   WHERE LOWER (sub" +
+                        ".subjectMatter )" +
+                        "=LOWER(:name)",Subject.class).
+                        setParameter("name",name)
                 .getResultList();
     }
 
-/*
-    public List<Subject> getSubjectsOfSpecificStudent(String studentName) {
-
-        String query = "SELECT st.firstName FROM Student sb " +
-                "INNER JOIN FETCH i.buyer b INNER JOIN FETCH"+
-                "WHERE LOWER (s.subjectMatter) = LOWER(:name )ORDER BY s.subjectMatter ";
-        return entityManager.
-                createQuery(query, Subject.class).
-                setParameter("studentName".toLowerCase(), studentName).
-                getResultList();
-
-
-
-
-
-
-    }*/
 }

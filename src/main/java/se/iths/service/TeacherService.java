@@ -60,18 +60,6 @@ public class TeacherService {
 
 
     }
-/*
-    public  List<Subject> getTeachersBySubject(String name) {
-        String query = "SELECT s FROM Subject s INNER JOIN FETCH s.teacher " +
-                "WHERE LOWER(s.subjectMatter) = " +
-                "LOWER(:name )" +
-                "ORDER BY s.subjectMatter";
 
-        return entityManager
-                .createQuery(query, Subject.class)
-                .getResultList();
-    }
-
-    */
 }
 

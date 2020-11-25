@@ -59,27 +59,6 @@ public class StudentService {
 
 
     }
-/*
-
-    public  List<Subject> getStudentsBySubject(String name) {
-        String query = "SELECT s FROM Subject s WHERE LOWER (s.subjectMatter) = LOWER(:name )ORDER BY s.subjectMatter";
-        return entityManager
-                .createQuery(query, Subject.class)
-                .getResultList();
-    }
-
-
-    public Set<Student> getStudentsBySubjectAndTeacher(String subjectName, String teacherName) {
-        String query ="SELECT DISTINCT i FROM Subject i INNER JOIN i.teacher t INNER JOIN i.students s WHERE t" +
-                ".firstName= :teacherName AND i.subjectMatter =:subjectName";
-        Subject subject = (Subject) entityManager
-                .createQuery(query,Subject.class)
-                .setParameter("teacherName", teacherName).setParameter("subjectName", subjectName).getSingleResult();
-        Set<Student> studentsResult = subject.getStudents();
-        return studentsResult;
-    }
-
-*/
 
 
 }
