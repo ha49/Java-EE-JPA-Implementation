@@ -2,7 +2,7 @@
 This application is a JAX-RS implementation of JAVA EE. 
 It uses Payara 5.2020.5 as server and H2 as temporary database.
 
-##STUDENT
+## STUDENT
 
 
 # GET
@@ -202,7 +202,7 @@ Output
 ]
 ````
 
-##DELETE
+## DELETE
 
 __Delete URL : http://localhost:8080/studeman/api/v1/student/1__
 
@@ -211,7 +211,7 @@ Output
 student with id: 1 was successfully removed
 ````
 
-##TEACHER
+## TEACHER
 
 
 # GET
@@ -374,7 +374,7 @@ Output
 }
 ````
 
-##DELETE
+## DELETE
 
 __Delete URL : http://localhost:8080/studeman/api/v1/teacher/18__
 
@@ -385,7 +385,7 @@ teacher with id: 18 was successfully removed
 
 
 
-##SUBJECT
+## SUBJECT
 
 
 # GET
@@ -630,7 +630,7 @@ Output:
 
 
 
-__Get 
+
 
 # POST 
 
