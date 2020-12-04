@@ -653,4 +653,48 @@ Output:
 }
 ````
 
+# GET CLASS LIST
+Gets students of a specific subject and teacher
 
+__URL http://localhost:8080/studeman/api/v1/teacher/getclass/Tom/Cinema__
+
+Output:
+````
+[
+{
+"email": "Angeli.Pitt@mrmrssimith.com",
+"firstName": "Angelina",
+"id": 6,
+"lastname": "Pitt",
+"phoneNumber": "000-000007"
+},
+{
+"email": "Leonardo.Oscar@revenant.com",
+"firstName": "Leonardo",
+"id": 8,
+"lastname": "Oscar",
+"phoneNumber": "000-000003"
+}
+]
+````
+__URL http://localhost:8080/studeman/api/v1/teacher/getclass/Barack/Governance__
+
+Output:
+````
+[
+{
+"email": "Trump.Golf@pennsylvania.com",
+"firstName": "Trump",
+"id": 9,
+"lastname": "Golf",
+"phoneNumber": "000-000004"
+},
+{
+"email": "Joe.Winner@vithus.com",
+"firstName": "Joe",
+"id": 11,
+"lastname": "Winner",
+"phoneNumber": "000-000006"
+}
+]
+````

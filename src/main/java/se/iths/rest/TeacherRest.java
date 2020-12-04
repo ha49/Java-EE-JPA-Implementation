@@ -1,5 +1,6 @@
 package se.iths.rest;
 
+import se.iths.entity.Student;
 import se.iths.entity.Teacher;
 import se.iths.exceptions.RequiredFieldIsEmptyException;
 import se.iths.exceptions.TeacherNotFoundException;
@@ -10,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Set;
 
 @Path("teacher")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -97,6 +99,14 @@ public class TeacherRest {
 
         return teacher.getFirstName().isBlank() || teacher.getLastName().isBlank() || teacher.getEmail().isBlank();
 
+    }
+
+
+    @Path("getclass/{teacherFirstName}/{subjectMatter}")
+    @GET
+    public Set<Student> getStudentsOfACertainSubjectAndTeacher(@PathParam("teacherFirstName") String teacherName,
+                          @PathParam("subjectMatter") String subjectName) {
+        return teacherService.getStudentsForSpecificTeacherAndSubject(teacherName, subjectName);
     }
 
 

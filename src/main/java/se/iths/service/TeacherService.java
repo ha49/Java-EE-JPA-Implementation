@@ -1,11 +1,14 @@
 package se.iths.service;
 
+import se.iths.entity.Student;
+import se.iths.entity.Subject;
 import se.iths.entity.Teacher;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 public class TeacherService {
@@ -57,6 +60,27 @@ public class TeacherService {
                 createQuery(query, Teacher.class).
                 setParameter("name".toLowerCase(), name).
                 getResultList();
+
+
+    }
+
+    public Set<Student> getStudentsForSpecificTeacherAndSubject(String teacherName, String subjectName) {
+
+
+        Subject subject = (Subject) entityManager
+                .createQuery("SELECT DISTINCT s FROM Subject s " +
+                        "INNER JOIN FETCH s.teacher t " +
+                        "INNER JOIN FETCH s.students u " +
+                        "WHERE t.firstName = :teacherFirstName " +
+                        "AND s.subjectMatter = :subjectMatter").
+                        setParameter("teacherFirstName", teacherName).
+                        setParameter("subjectMatter", subjectName).
+                        getSingleResult();
+
+
+        Set<Student> studentList = subject.getStudents();
+
+        return studentList;
 
 
     }
